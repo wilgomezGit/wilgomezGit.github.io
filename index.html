@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rutina Wil App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>🏋️ Rutina Semanal Wil</h1>
+    <p>Plan de lunes a viernes con temporizador y checklist ✅</p>
+  </header>
+
+  <main>
+    <!-- Selector de día -->
+    <div class="day-selector">
+      <button onclick="showDay('lunes')">Lunes</button>
+      <button onclick="showDay('martes')">Martes</button>
+      <button onclick="showDay('miercoles')">Miércoles</button>
+      <button onclick="showDay('jueves')">Jueves</button>
+      <button onclick="showDay('viernes')">Viernes</button>
+    </div>
+
+    <!-- Rutinas -->
+    <section id="routine-container"></section>
+
+    <!-- Temporizador -->
+    <section id="timer">
+      <h2>⏱️ Temporizador</h2>
+      <p id="time">00:00</p>
+      <div class="timer-buttons">
+        <button onclick="startTimer()">▶ Iniciar</button>
+        <button onclick="pauseTimer()">⏸ Pausa</button>
+        <button onclick="resetTimer()">🔄 Reset</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Creado por Wil 💪 | App Web</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
