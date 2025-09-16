@@ -1,46 +1,55 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rutina Wil App</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Rutinas Wil — Menú</title>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <header>
-    <h1>🏋️ Rutina Semanal Wil</h1>
-    <p>Plan de lunes a viernes con temporizador y checklist ✅</p>
+  <header class="site-header">
+    <div class="header-inner">
+      <h1>Rutinas Semanales</h1>
+      <p class="subtitle">Elige el día y trabaja una parte del cuerpo con descanso inteligente</p>
+    </div>
   </header>
 
-  <main>
-    <!-- Selector de día -->
-    <div class="day-selector">
-      <button onclick="showDay('lunes')">Lunes</button>
-      <button onclick="showDay('martes')">Martes</button>
-      <button onclick="showDay('miercoles')">Miércoles</button>
-      <button onclick="showDay('jueves')">Jueves</button>
-      <button onclick="showDay('viernes')">Viernes</button>
-    </div>
+  <main class="days-grid">
+    <a class="day-card" href="rutina.html?dia=lunes">
+      <div class="day-icon">🏋️‍♂️</div>
+      <div class="day-name">Lunes</div>
+      <div class="day-sub">Pecho · Tríceps</div>
+    </a>
 
-    <!-- Rutinas -->
-    <section id="routine-container"></section>
+    <a class="day-card" href="rutina.html?dia=martes">
+      <div class="day-icon">🦵</div>
+      <div class="day-name">Martes</div>
+      <div class="day-sub">Piernas · Glúteos</div>
+    </a>
 
-    <!-- Temporizador -->
-    <section id="timer">
-      <h2>⏱️ Temporizador</h2>
-      <p id="time">00:00</p>
-      <div class="timer-buttons">
-        <button onclick="startTimer()">▶ Iniciar</button>
-        <button onclick="pauseTimer()">⏸ Pausa</button>
-        <button onclick="resetTimer()">🔄 Reset</button>
-      </div>
-    </section>
+    <a class="day-card" href="rutina.html?dia=miercoles">
+      <div class="day-icon">💪</div>
+      <div class="day-name">Miércoles</div>
+      <div class="day-sub">Espalda · Bíceps</div>
+    </a>
+
+    <a class="day-card" href="rutina.html?dia=jueves">
+      <div class="day-icon">🤸‍♂️</div>
+      <div class="day-name">Jueves</div>
+      <div class="day-sub">Hombros · Core</div>
+    </a>
+
+    <a class="day-card" href="rutina.html?dia=viernes">
+      <div class="day-icon">⚡</div>
+      <div class="day-name">Viernes</div>
+      <div class="day-sub">Full body · Cardio</div>
+    </a>
   </main>
 
-  <footer>
-    <p>Creado por Wil 💪 | App Web</p>
+  <footer class="footer">
+    <p>Creado por: Wil Gómez | 2025</p>
+    <p>Copyright © | Todos los derechos reservados</p>
   </footer>
 
-  <script src="script.js"></script>
 </body>
 </html>
