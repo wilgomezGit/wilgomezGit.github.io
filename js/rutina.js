@@ -1,3 +1,7 @@
+document.addEventListener('DOMContentLoaded', () => {
+  alertSound.load(); // asegura que el navegador prepare el audio
+});
+
 
 // Helper to get query param 'dia'
 function getDayFromQuery() {
