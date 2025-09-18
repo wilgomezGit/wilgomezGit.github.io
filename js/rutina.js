@@ -243,19 +243,19 @@ document.addEventListener('DOMContentLoaded', function () {
   addExerciseBtn && addExerciseBtn.addEventListener('click', () => openModal(window.currentDay));
 
   // start: first click unlocks audio in many browsers
-  startBtn && startBtn.addEventListener('click', () => {
-    clearInterval(interval);
-    isPaused = false;
-    isPreparation = true;
-    isExercise = false;
-    // try to unlock audio
-    if (alertSound && alertSound.play) {
-      alertSound.play().catch(()=>{});
-      try { alertSound.pause(); alertSound.currentTime = 0; } catch(e){}
-    }
-    startTimer();
-  });
+ startBtn && startBtn.addEventListener('click', () => {
+  clearInterval(interval);
+  isPaused = false;
+  isPreparation = true;
+  isExercise = false;
 
+  // 🔊 desbloqueo de audio más limpio
+  if (alertSound && alertSound.load) {
+    try { alertSound.load(); } catch(e){}
+  }
+
+  startTimer();
+});
   pauseBtn && pauseBtn.addEventListener('click', () => {
     isPaused = !isPaused;
     pauseBtn.textContent = isPaused ? "CONTINUAR!" : "PAUSA";
