@@ -2,10 +2,6 @@
 // Usamos ruta relativa porque rutina.js está en /js/
 const alertSound = new Audio("../assets/sounds/alert.mp3");
 
-document.addEventListener('DOMContentLoaded', () => {
-  alertSound.load(); // asegura que el navegador prepare el audio
-});
-
 // --- Helper to get query param 'dia' ---
 function getDayFromQuery() {
   const params = new URLSearchParams(location.search);
@@ -176,7 +172,7 @@ function startTimer() {
   const statusEl = document.getElementById("status");
   if (statusEl) statusEl.textContent = isPreparation ? "Preparación" : (isExercise ? "EJERCICIO GO! GO!" : "Descanso");
 
-  document.body.style.transition = 'background-color 0.4s';
+  // transición suave de color
   document.body.style.backgroundColor = isPreparation ? "#f4b400" : (isExercise ? "#ff5733" : "#33b5e5");
 
   interval = setInterval(() => {
@@ -189,7 +185,7 @@ function startTimer() {
     updateTotalTimeDisplay();
 
     if (timeLeft === 4) {
-      try { alertSound.play(); } catch (e) { console.log("Audio error", e); }
+      alertSound.play().catch(e => console.log("Audio bloqueado", e));
     }
 
     if (totalTime === 2400) {
@@ -216,11 +212,15 @@ function startTimer() {
 
 // --- Init ---
 document.addEventListener('DOMContentLoaded', function () {
+  document.body.style.transition = "background-color 0.5s ease"; // transición siempre activa
+
   document.getElementById("startButton").addEventListener("click", () => {
     clearInterval(interval);
     isPaused = false;
     isPreparation = true;
     isExercise = false;
+    // desbloquea el sonido con la primera interacción
+    alertSound.play().catch(() => {}); 
     startTimer();
   });
 
